@@ -1,4 +1,4 @@
-package com.lh.casetwo;
+package com.lh.caseone;
 
 import java.io.IOException;
 import java.io.PrintWriter;
