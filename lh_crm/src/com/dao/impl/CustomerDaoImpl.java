@@ -1,71 +1,39 @@
 package com.dao.impl;
 
 import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
-
 import com.dao.CustomerDao;
 import com.model.Customer;
-import com.utils.HibernateUtils;
 
 public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao {
 
 	@Override
-	public void save(Customer c) {
+	public Integer getTotalCount(DetachedCriteria dc) {
 		// TODO Auto-generated method stub
-		/*
-		 * Session session=HibernateUtils.getCurrentSession(); session.save(c);
-		 * session.close();
-		 */
-		getHibernateTemplate().save(c);
+		//设置查询的聚合函数，总记录数
+		dc.setProjection(Projections.rowCount());
+		List<Long> list= (List<Long>) getHibernateTemplate().findByCriteria(dc);
+		//情况聚合函数
+		dc.setProjection(null);
+		if(list!=null&&list.size()!=0){
+			Long count=list.get(0);
+			return count.intValue();
+		}else{
+			return null;
+		}
 	}
 
 	@Override
-	public List<Customer> getAll() {
+	public List getPageList(DetachedCriteria dc, Integer start, Integer pageSize) {
 		// TODO Auto-generated method stub
-		Configuration conf = new Configuration().configure();
-
-		SessionFactory sf = conf.buildSessionFactory();
-
-		Session session = sf.openSession();
-
-		Transaction tx = session.beginTransaction();
-		// -------------------------------------------------
-		Criteria c = session.createCriteria(Customer.class);
-		List<Customer> list = c.list();
-
-		// -------------------------------------------------
-		tx.commit();
-
-		session.close();
-
-		sf.close();
+		//HibernateTemplate已经封装好的分页查询
+		List<Customer> list = (List<Customer>) getHibernateTemplate().findByCriteria(dc, start, pageSize);
+		
 		return list;
 	}
+	
 
-	@Override
-	public Customer getById(Long cust_id) {
-		// TODO Auto-generated method stub
-		Session session = HibernateUtils.getCurrentSession();
-		Customer c = session.get(Customer.class, cust_id);
-		session.close();
-		return c;
-	}
-
-	@Override
-	public List<Customer> getAll(DetachedCriteria dc) {
-		// TODO Auto-generated method stub
-		Session session = HibernateUtils.getCurrentSession();
-		Criteria c = dc.getExecutableCriteria(session);
-		List<Customer> list = c.list();
-		session.close();
-		return list;
-	}
-
+	
 }

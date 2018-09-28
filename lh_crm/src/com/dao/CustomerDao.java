@@ -8,12 +8,9 @@ import com.model.Customer;
 
 public interface CustomerDao {
 
-	//保存客户
-		void save(Customer c);
-		//查询所有客户
-		List<Customer> getAll();
-		//根据id获得客户
-		Customer getById(Long cust_id);
-		//根据条件查询所有客户
-		List<Customer> getAll(DetachedCriteria dc);
+	
+	Integer getTotalCount(DetachedCriteria dc);
+	List getPageList(DetachedCriteria dc,Integer start,Integer pageSize);
+	
+	
 }

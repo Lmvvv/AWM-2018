@@ -86,28 +86,26 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 	<bean name="userAction" class="com.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
-	<bean name="customerAction" class="com.action.CustomerAction" scope="prototype">
-		<property name="customerService" ref="customerService"></property>
+	<bean name="customerAction" class="com.action.CustomerAction" scope="prototype" >
+		<property name="cs" ref="customerService" ></property>
 	</bean>
 	
 	<!-- Service配置 -->
 	<bean name="userService" class="com.service.impl.UserServiceImpl">
 		<property name="ud" ref="userDao"></property>
 	</bean>
-	<bean name="customerService" class="com.service.impl.CustomerServiceImpl">
-		<property name="cd" ref="customerDao"></property>
+	<bean name="customerService" class="com.service.impl.CustomerServiceImpl" >
+		<property name="cd" ref="customerDao" ></property>
 	</bean>
 	
 	<!-- dao -->
 	<bean name="userDao" class="com.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean name="customerDao" class="com.dao.impl.CustomerDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
+	<bean name="customerDao" class="com.dao.impl.CustomerDaoImpl" >
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
-	<!-- <bean name="linkManDao" class="com.dao.impl.LinkManDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean> -->
 	
 	
 	
