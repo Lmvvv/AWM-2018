@@ -89,6 +89,9 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 	<bean name="customerAction" class="com.action.CustomerAction" scope="prototype" >
 		<property name="cs" ref="customerService" ></property>
 	</bean>
+	<bean name="baseDictAction" class="com.action.BaseDictAction" scope="prototype" >
+		<property name="baseDictService" ref="baseDictService" ></property>
+	</bean>
 	
 	<!-- Service配置 -->
 	<bean name="userService" class="com.service.impl.UserServiceImpl">
@@ -96,6 +99,9 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 	</bean>
 	<bean name="customerService" class="com.service.impl.CustomerServiceImpl" >
 		<property name="cd" ref="customerDao" ></property>
+	</bean>
+	<bean name="baseDictService" class="com.service.impl.BaseDictServiceImpl" >
+		<property name="bdd" ref="baseDictDao" ></property>
 	</bean>
 	
 	<!-- dao -->
@@ -106,7 +112,10 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 		<!-- 注入sessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
-	
+	<bean name="baseDictDao" class="com.dao.impl.BaseDictDaoImpl" >
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
 	
 	
 	

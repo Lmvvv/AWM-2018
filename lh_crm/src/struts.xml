@@ -33,6 +33,9 @@
 		</action>
 		<action name="CustomerAction_*" class="customerAction" method="{1}" >
 			<result name="list"  >/jsp/customer/list.jsp</result>
+			<result name="toAdd">/jsp/customer/add.jsp</result>
 		</action>
+		<!-- 数据字典Action -->
+		<action name="BaseDictAction" class="baseDictAction"  ></action>
 	</package>
 </struts>

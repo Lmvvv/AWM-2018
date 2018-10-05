@@ -35,6 +35,11 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		ActionContext.getContext().put("pageBean", pb);
 		return "list";
 	}
+	
+	public String add() throws Exception {
+		
+		return "toAdd";
+	}
 
 	@Override
 	public Customer getModel() {
