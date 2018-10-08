@@ -29,8 +29,7 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao 
 	public List getPageList(DetachedCriteria dc, Integer start, Integer pageSize) {
 		// TODO Auto-generated method stub
 		//HibernateTemplate已经封装好的分页查询
-		List<Customer> list = (List<Customer>) getHibernateTemplate().
-				findByCriteria(dc, start, pageSize);
+		List<Customer> list = (List<Customer>) getHibernateTemplate().findByCriteria(dc, start, pageSize);
 		
 		return list;
 	}
