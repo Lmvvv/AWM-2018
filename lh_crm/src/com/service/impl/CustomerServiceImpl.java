@@ -9,6 +9,9 @@ import com.utils.PageBean;
 
 public class CustomerServiceImpl implements CustomerService {
 	private CustomerDao cd;
+	public void setCd(CustomerDao cd) {
+		this.cd = cd;
+	}
 	@Override
 	public PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize) {
 		//1 调用Dao查询总记录数
@@ -22,8 +25,14 @@ public class CustomerServiceImpl implements CustomerService {
 		pb.setList(list);
 		return pb;
 	}
-	public void setCd(CustomerDao cd) {
-		this.cd = cd;
+	
+	@Override
+	public void save(Customer customer) {
+		// TODO Auto-generated method stub
+		//1.
+		//2.调用Dao保存
+		cd.save(customer);
 	}
+	
 
 }

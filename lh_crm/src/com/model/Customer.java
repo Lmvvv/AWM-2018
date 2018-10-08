@@ -25,18 +25,15 @@ public class Customer {
 	private String cust_phone; //固定电话
 	private String cust_mobile; //移动电话
 	
+//	private BaseDict cust_source;
+//	private BaseDict cust_industry;
+//	private BaseDict cust_level;
+	
 	//get\set
+	
+	
 	public Long getCust_id() {
 		return cust_id;
-	}
-	public void setCust_id(Long cust_id) {
-		this.cust_id = cust_id;
-	}
-	public String getCust_name() {
-		return cust_name;
-	}
-	public void setCust_name(String cust_name) {
-		this.cust_name = cust_name;
 	}
 	public String getCust_source() {
 		return cust_source;
@@ -55,6 +52,15 @@ public class Customer {
 	}
 	public void setCust_level(String cust_level) {
 		this.cust_level = cust_level;
+	}
+	public void setCust_id(Long cust_id) {
+		this.cust_id = cust_id;
+	}
+	public String getCust_name() {
+		return cust_name;
+	}
+	public void setCust_name(String cust_name) {
+		this.cust_name = cust_name;
 	}
 	public String getCust_linkman() {
 		return cust_linkman;

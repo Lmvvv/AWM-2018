@@ -7,7 +7,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import com.dao.CustomerDao;
 import com.model.Customer;
 
-public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao {
+public class CustomerDaoImpl extends  BaseDaoImpl<Customer> implements CustomerDao {
 
 	@Override
 	public Integer getTotalCount(DetachedCriteria dc) {
@@ -34,6 +34,10 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao 
 		return list;
 	}
 	
+	
+	public void save(Customer customer){
+		getHibernateTemplate().save(customer);
+	}
 
 	
 }
