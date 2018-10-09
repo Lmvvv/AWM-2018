@@ -31,7 +31,13 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		//1.
 		//2.调用Dao保存
-		cd.save(customer);
+		cd.saveOrUpdate(customer);
+	}
+	
+	@Override
+	public Customer getById(Long cust_id) {
+		// TODO Auto-generated method stub
+		return cd.getById(cust_id);
 	}
 	
 

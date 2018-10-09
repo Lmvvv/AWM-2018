@@ -28,7 +28,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	private CustomerService cs;
 	private Integer currentPage;
 	private Integer pageSize;
-
+	//显示客户信息
 	public String list() throws Exception {
 		// 封装离线查询对象
 		DetachedCriteria dc = DetachedCriteria.forClass(Customer.class);
@@ -43,7 +43,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		ActionContext.getContext().put("pageBean", pb);
 		return "list";
 	}
-
+	//添加客户
 	public String add() throws Exception {
 		
 		
@@ -54,7 +54,15 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		//2 重定向到客户列表Action
 		return "toList";
 	}
-
+	//修改客户
+	public String toEdit(){
+		//1.
+		Customer c= cs.getById(customer.getCust_id());
+		//2.
+		ActionContext.getContext().put("customer", c);
+		return "edit";
+	}
+	
 	@Override
 	public Customer getModel() {
 		return customer;
