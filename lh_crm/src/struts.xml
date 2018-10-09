@@ -27,10 +27,12 @@
 		 		完全由spring管理action生命周期,包括Action的创建
 		 		注意:需要手动组装依赖属性
 		  -->
+		<!-- 用户 -->
 		<action name="UserAction_*" class="userAction" method="{1}">
 			<result name="toHome">/index.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>
+		<!-- 客户 -->
 		<action name="CustomerAction_*" class="customerAction" method="{1}" >
 			<result name="edit"  >/jsp/customer/add.jsp</result>
 			<result name="list"  >/jsp/customer/list.jsp</result>
@@ -39,7 +41,13 @@
 				<param name="actionName">CustomerAction_list</param>
 			</result>
 		</action>
+		<!-- 联系人 -->
+		<action name="LinkManAction_*" class="linkManAction" method="{1}">
+			<result name="toList">/jsp/linkman/list.jsp</result>
+			
+		</action>
 		
+		<!-- 数据字典 -->
 		<action name="BaseDictAction" class="baseDictAction"></action>
 	</package>
 </struts>

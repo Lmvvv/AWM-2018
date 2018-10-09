@@ -93,6 +93,10 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 	<bean name="baseDictAction" class="com.action.BaseDictAction" scope="prototype">
 		<property name="baseDictService" ref="baseDictService"></property>
 	</bean>
+	<bean name="linkManAction" class="com.action.LinkManAction" scope="prototype">
+		<property name="lms" ref="linkManService"></property>
+	</bean>
+	
 	
 	<!-- Service配置 -->
 	<bean name="userService" class="com.service.impl.UserServiceImpl">
@@ -104,6 +108,10 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 	<bean name="baseDictService" class="com.service.impl.BaseDictServiceImpl" >
 		<property name="bdd" ref="baseDictDao" ></property>
 	</bean>
+	<bean name="linkManService" class="com.service.impl.LinkManServiceImpl" >
+		<property name="lmd" ref="linkManDao" ></property>
+	</bean>
+	
 	
 	<!-- dao -->
 	<bean name="userDao" class="com.dao.impl.UserDaoImpl">
@@ -117,6 +125,11 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 		<!-- 注入sessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
+	<bean name="linkManDao" class="com.dao.impl.LinkManDaoImpl" >
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
 	
 	
 	

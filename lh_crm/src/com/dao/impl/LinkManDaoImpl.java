@@ -6,6 +6,6 @@ import com.dao.LinkManDao;
 import com.model.LinkMan;
 import com.utils.HibernateUtils;
 
-public class LinkManDaoImpl implements LinkManDao {
+public class LinkManDaoImpl extends  BaseDaoImpl<LinkMan> implements LinkManDao {
 	
 }
