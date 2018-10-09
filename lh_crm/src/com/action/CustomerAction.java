@@ -63,6 +63,14 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return "edit";
 	}
 	
+	public String delete(){
+		//1.根据用户的id的到要删除customer对象
+		Customer c= cs.getById(customer.getCust_id());
+		//2.
+		cs.delete(c);
+		return "delete";
+	}
+	
 	@Override
 	public Customer getModel() {
 		return customer;

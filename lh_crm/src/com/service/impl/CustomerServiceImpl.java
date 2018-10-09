@@ -39,6 +39,11 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return cd.getById(cust_id);
 	}
+	@Override
+	public void delete(Customer c) {
+		// TODO Auto-generated method stub
+		cd.delete(c);
+	}
 	
 
 }
