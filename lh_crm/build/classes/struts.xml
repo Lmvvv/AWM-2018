@@ -30,7 +30,7 @@
 		
 		<global-results><result name="toLogin" type="redirect">/login.jsp</result></global-results>
 		
-		<!-- 异常处理配置 -->
+		<!-- 全局异常处理配置 -->
 		<global-exception-mappings>
 			<exception-mapping result="error" exception="java.Lang.RuntimeException"></exception-mapping>
 			
@@ -79,6 +79,16 @@
 			</result>
 			<result name="list"  >/jsp/linkman/list.jsp</result>
 			<result name="edit"  >/jsp/linkman/add.jsp</result>
+			
+		</action>
+		
+		<action name="SaleVisitAction_*" class="saleVisitAction" method="{1}">
+			<result name="toList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">SaleVisitAction_list</param>
+			</result>
+			<result name="list"  >/jsp/salevisit/list.jsp</result>
+			<result name="edit"  >/jsp/salevisit/add.jsp</result>
 			
 		</action>
 		

@@ -59,14 +59,30 @@ public class SaleVisit {
 		public void setVisit_detail(String visit_detail) {
 			this.visit_detail = visit_detail;
 		}
+		
+		
+		
 		public Date getVisit_time() {
 			return visit_time;
 		}
-		public void setVisit_time(Date visit_time) {
-			this.visit_time = visit_time;
-		}
 		public Date getVisit_nexttime() {
 			return visit_nexttime;
+		}
+		//------------------------------------------
+		public String getVisit_time_s() {
+			return transferDate(visit_time, "yyyy-MM-dd");
+		}
+		public String getVisit_nexttime_s() {
+			return transferDate(visit_nexttime, "yyyy-MM-dd");
+		}
+		public static String transferDate(Date date,String formt){
+			SimpleDateFormat sdf=new SimpleDateFormat(formt);
+			return sdf.format(date);
+		}
+		//------------------------------------------
+		
+		public void setVisit_time(Date visit_time) {
+			this.visit_time = visit_time;
 		}
 		public void setVisit_nexttime(Date visit_nexttime) {
 			this.visit_nexttime = visit_nexttime;
