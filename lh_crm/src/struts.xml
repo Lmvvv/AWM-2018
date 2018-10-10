@@ -17,6 +17,7 @@
 		<!-- 异常处理配置 -->
 		<global-exception-mappings>
 			<exception-mapping result="error" exception="java.Lang.RuntimeException"></exception-mapping>
+			
 		</global-exception-mappings>
 		
 		<!-- 整合方案1:class属性上仍然配置action的完整类名
@@ -34,6 +35,8 @@
 		<action name="UserAction_*" class="userAction" method="{1}">
 			<result name="toHome">/index.jsp</result>
 			<result name="error">/login.jsp</result>
+			<result name="regist">/regist.jsp</result>
+			<result name="toLogin" type="redirect">/login.jsp</result>
 		</action>
 		<!-- 客户 -->
 		<action name="CustomerAction_*" class="customerAction" method="{1}" >

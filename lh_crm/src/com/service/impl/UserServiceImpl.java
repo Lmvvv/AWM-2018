@@ -35,7 +35,13 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
 	public void saveUser(User user) {
-		// TODO Auto-generated method stub
+		//1.
+		User userCode = ud.getByUserCode(user.getUser_code());
+		//2.
+		if(userCode!=null){
+			throw new RuntimeException("用户已经存在！");
+		}
+		//3.
 		ud.save(user);
 	}
 
