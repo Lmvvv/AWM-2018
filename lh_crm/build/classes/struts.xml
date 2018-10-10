@@ -13,6 +13,22 @@
 	<constant name="struts.objectFactory" value="spring"></constant>
 	
 	<package name="crm" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 1注册拦截器 -->
+			<interceptor name="privilegeInterceptor" class="com.action.interceptor.PrivilegeInterceptor"></interceptor>
+			<!-- 2配置拦截器栈 -->
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="privilegeInterceptor">
+					<param name="excludeMethods">login,regist</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 3指定默认拦截器栈 -->
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		
+		<global-results><result name="toLogin" type="redirect">/login.jsp</result></global-results>
 		
 		<!-- 异常处理配置 -->
 		<global-exception-mappings>
