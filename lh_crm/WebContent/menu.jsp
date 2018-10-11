@@ -258,7 +258,7 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/UserAction_list"
 														target=main>－角色管理</A></TD>
 												</TR>
 												<TR>

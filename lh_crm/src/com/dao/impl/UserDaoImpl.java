@@ -17,7 +17,7 @@ import com.utils.HibernateUtils;
 //HibernateDaoSupport 为dao注入sessionfactory
 
 
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	
 	@Override

@@ -2,7 +2,7 @@ package com.dao;
 
 import com.model.User;
 
-public interface UserDao {
+public interface UserDao extends BaseDao<User> {
 
 	//根据登陆名返回User
 	User getByUserCode(String user_code);
