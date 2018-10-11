@@ -47,7 +47,19 @@ public class LinkMan {
 	public Character getLkm_gender() {
 		return lkm_gender;
 	}
-
+	public String getLkm_gender_s() {
+		if(lkm_gender==null){
+			return "";
+		}
+		switch (lkm_gender) {
+		case '1':
+			return "男";
+		case '2':
+			return "女";
+		default:
+			return "";
+		}
+	}
 	public void setLkm_gender(Character lkm_gender) {
 		this.lkm_gender = lkm_gender;
 	}
@@ -123,4 +135,13 @@ public class LinkMan {
 	public void setCust_id(Long cust_id) {
 		this.cust_id = cust_id;
 	}
+
+	@Override
+	public String toString() {
+		return "LinkMan [lkm_id=" + lkm_id + ", lkm_gender=" + lkm_gender + ", lkm_name=" + lkm_name + ", lkm_phone="
+				+ lkm_phone + ", lkm_email=" + lkm_email + ", lkm_qq=" + lkm_qq + ", lkm_mobile=" + lkm_mobile
+				+ ", lkm_memo=" + lkm_memo + ", lkm_position=" + lkm_position + ", customer=" + customer + ", cust_id="
+				+ cust_id + "]";
+	}
+	
 }

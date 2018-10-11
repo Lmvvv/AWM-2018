@@ -25,9 +25,11 @@ public class SaleVisitAction extends ActionSupport implements ModelDriven<SaleVi
 		public String add() throws Exception {
 			//0 取出登陆用户,放入SaleVisit实体.表达关系
 				User u = (User) ActionContext.getContext().getSession().get("user");
+				u.toString();
 				saleVisit.setUser(u);
 			//1 调用Service保存客户拜访记录
 				svs.save(saleVisit);
+				saleVisit.toString();
 			//2 重定向到拜访记录列表Action
 			return "toList";
 		}

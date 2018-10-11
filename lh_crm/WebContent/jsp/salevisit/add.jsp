@@ -73,6 +73,7 @@
 								<input type="text"  style="WIDTH: 180px" id="cust_name" value="<s:property value="#saleVisit.customer.cust_name" />"/>
 									<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=600,height=300')" />
 								</td>
+						
 								<td>拜访时间 ：</td>
 								<td  >
 									<INPUT class=textbox id="visit_time" type="text" 

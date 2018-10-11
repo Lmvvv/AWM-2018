@@ -40,6 +40,7 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 	public String add() throws Exception {
 		//1.调用service层的save方法
 		lms.save(linkman);
+		linkman.toString();
 		//2.重定向到页面
 		return "toList";
 	}

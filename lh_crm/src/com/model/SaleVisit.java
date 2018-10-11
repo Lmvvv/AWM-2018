@@ -99,4 +99,12 @@ public class SaleVisit {
 		public void setUser(User user) {
 			this.user = user;
 		}
+		@Override
+		public String toString() {
+			return "SaleVisit [visit_id=" + visit_id + ", visit_interviewee=" + visit_interviewee + ", visit_addr="
+					+ visit_addr + ", visit_detail=" + visit_detail + ", visit_time=" + visit_time + ", visit_nexttime="
+					+ visit_nexttime + ", customer=" + customer + ", user=" + user + "]";
+		}
+		
+		
 }
