@@ -12,5 +12,6 @@ public interface CustomerDao extends BaseDao<Customer> {
 	Integer getTotalCount(DetachedCriteria dc);
 	List getPageList(DetachedCriteria dc,Integer start,Integer pageSize);
 	void save(Customer customer);
-	
+	//按照行业统计客户数量
+	List<Object[]> getIndustryCount();
 }

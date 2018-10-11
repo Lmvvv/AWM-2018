@@ -66,6 +66,7 @@
 				<param name="namespace">/</param>
 				<param name="actionName">CustomerAction_list</param>
 			</result>
+			<result name="industryCount"  >/jsp/customer/industryCount.jsp</result>
 		</action>
 		<!-- 联系人 -->
 		<action name="LinkManAction_*" class="linkManAction" method="{1}">

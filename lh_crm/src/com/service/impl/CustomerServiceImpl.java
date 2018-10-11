@@ -44,6 +44,12 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		cd.delete(c);
 	}
+	//获得按行业统计客户的数量
+	@Override
+	public List<Object[]> getIndustryCount() {
+		// TODO Auto-generated method stub
+		return cd.getIndustryCount();
+	}
 	
 
 }

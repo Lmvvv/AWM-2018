@@ -1,8 +1,13 @@
 package com.dao.impl;
 
 import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import com.dao.CustomerDao;
 import com.model.Customer;
@@ -37,6 +42,24 @@ public class CustomerDaoImpl extends  BaseDaoImpl<Customer> implements CustomerD
 	
 	public void save(Customer customer){
 		getHibernateTemplate().save(customer);
+	}
+
+	@Override
+	@SuppressWarnings("all")
+	public List<Object[]> getIndustryCount() {
+		//原生SQL查询
+		List<Object[]> list= getHibernateTemplate().execute(new HibernateCallback<List>() {
+
+			String sql="select dict_item_name, count(*) from cst_customer ,base_dict "
+					+ "where cust_industry=dict_id  group by cust_industry";
+			@Override
+			public List doInHibernate(Session session) throws HibernateException {
+				// TODO Auto-generated method stub
+				SQLQuery sqlQuery = session.createSQLQuery(sql);
+				return sqlQuery.list();
+			}
+		});
+		return list;
 	}
 
 	

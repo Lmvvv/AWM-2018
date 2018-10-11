@@ -1,6 +1,7 @@
 package com.action;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
@@ -70,6 +71,18 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		cs.delete(c);
 		return "delete";
 	}
+	
+	//获得按行业统计客户的数量
+	public String count() throws Exception {
+		// TODO Auto-generated method stub
+		List<Object[]> list=cs.getIndustryCount();
+		ActionContext.getContext().put("list", list);
+		return "industryCount";
+	}
+	
+	
+	
+	
 	
 	@Override
 	public Customer getModel() {
