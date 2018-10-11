@@ -1,13 +1,18 @@
 package com.service.impl;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.UserDao;
+import com.model.Customer;
 import com.model.User;
 import com.service.UserService;
 import com.utils.MD5Utils;
+import com.utils.PageBean;
 
 @Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=true)
 public class UserServiceImpl implements UserService {
@@ -17,6 +22,19 @@ public class UserServiceImpl implements UserService {
 	 *在applicationContext.xml中Service配置时<property name="ud">name里的一定要与 
 	 *上面的ud一样
 	 */
+	@Override
+	public PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize) {
+		//1 调用Dao查询总记录数
+		Integer totalCount = ud.getTotalCount(dc);
+		//2 创建PageBean对象
+		PageBean pb = new PageBean(currentPage, totalCount, pageSize);
+		//3 调用Dao查询分页列表数据
+		
+		List<User> list = ud.getPageList(dc,pb.getStart(),pb.getPageSize());
+		//4 列表数据放入pageBean中.并返回
+		pb.setList(list);
+		return pb;
+	}
 	@Override
 	public User getUserByCodePassword(User user) {
 		// TODO Auto-generated method stub
@@ -54,5 +72,15 @@ public class UserServiceImpl implements UserService {
 
 	public void setUd(UserDao ud) {
 		this.ud = ud;
+	}
+	@Override
+	public User getById(Long user_id) {
+		// TODO Auto-generated method stub
+		return ud.getById(user_id);
+	}
+	@Override
+	public void deleteById(Long user_id) {
+		// TODO Auto-generated method stub
+		ud.delete(user_id);
 	}
 }

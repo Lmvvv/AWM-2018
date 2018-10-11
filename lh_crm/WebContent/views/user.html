@@ -41,13 +41,13 @@ $('#ff').submit();
 				singleSelect:true, //只允许单选
 				iconCls:'icon-tip',//表格标题图标
 				//width:700, //宽度
-				//height:350, //高度
+				//height:550, //高度
 				nowrap: true,//某列数据较长时,是否需要换行
 				striped: true,//是否隔行变色
 				collapsible:false,//是否可以折叠表格
 				url:'${pageContext.request.contextPath}/UserAction_list',//指定表格数据加载的路径
 				sortName: 'user_id',//指定可以使用哪列进行排序
-				sortOrder: 'desc',//指定默认排序规则 asc/desc
+				sortOrder: 'asc',//指定默认排序规则 asc/desc
 				remoteSort: false,//是否支持远程
 				idField:'user_id', //那一列是id列
 				frozenColumns:[[

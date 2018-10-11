@@ -13,7 +13,6 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.dao.UserDao;
 import com.model.User;
-import com.utils.HibernateUtils;
 //HibernateDaoSupport 为dao注入sessionfactory
 
 
