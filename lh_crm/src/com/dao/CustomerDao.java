@@ -14,4 +14,6 @@ public interface CustomerDao extends BaseDao<Customer> {
 	void save(Customer customer);
 	//按照行业统计客户数量
 	List<Object[]> getIndustryCount();
+	//获得按行业统计客户的数量
+	List<Object[]> getSourceCount();
 }

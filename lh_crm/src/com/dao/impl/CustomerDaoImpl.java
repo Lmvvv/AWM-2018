@@ -62,5 +62,23 @@ public class CustomerDaoImpl extends  BaseDaoImpl<Customer> implements CustomerD
 		return list;
 	}
 
+	@Override
+	@SuppressWarnings("all")
+	public List<Object[]> getSourceCount() {
+		// TODO Auto-generated method stub
+		List<Object[]> list= getHibernateTemplate().execute(new HibernateCallback<List>() {
+
+			String sql="select dict_item_name, count(*) from cst_customer ,base_dict "
+					+ "where cust_source=dict_id  group by cust_industry";
+			@Override
+			public List doInHibernate(Session session) throws HibernateException {
+				// TODO Auto-generated method stub
+				SQLQuery sqlQuery = session.createSQLQuery(sql);
+				return sqlQuery.list();
+			}
+		});
+		return list;
+	}
+
 	
 }

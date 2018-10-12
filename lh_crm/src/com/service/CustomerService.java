@@ -18,6 +18,9 @@ public interface CustomerService {
 
 	//获得按行业统计客户的数量
 	List<Object[]> getIndustryCount();
+
+	//获得按行业统计客户的数量
+	List<Object[]> getSourceCount();
 	
 }
 

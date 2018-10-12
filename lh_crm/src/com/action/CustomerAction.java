@@ -76,7 +76,12 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		ActionContext.getContext().put("list", list);
 		return "industryCount";
 	}
-	
+	//获得按行业统计客户的数量
+	public String sourceCount() throws Exception{
+		List<Object[]> list= cs.getSourceCount();
+		ActionContext.getContext().put("list", list);
+		return "sourceCount";
+	}
 	
 	
 	

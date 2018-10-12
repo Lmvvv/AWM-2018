@@ -237,7 +237,7 @@ A.active {
 														target=main>－客户行业统计</A></TD>
 												</TR>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/CustomerAction_sourceCount"
 														target=main>－客户来源统计</A></TD>
 												</TR>
 												
