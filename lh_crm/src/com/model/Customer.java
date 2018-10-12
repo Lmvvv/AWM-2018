@@ -20,9 +20,9 @@ public class Customer {
 	private Long cust_id; // 客户编号(主键)
 
 	private String cust_name; // 客户名称(公司名称)
-	private String cust_source; // 客户信息来源
-	private String cust_industry; // 客户所属行业
-	private String cust_level; // 客户级别
+//	private String cust_source; // 客户信息来源
+//	private String cust_industry; // 客户所属行业
+//	private String cust_level; // 客户级别
 	private String cust_linkman; // 联系人
 	private String cust_phone; // 固定电话
 	private String cust_mobile; // 移动电话
@@ -30,39 +30,64 @@ public class Customer {
 	// 表达客户与拜访记录的一对多
 	private Set<SaleVisit> saleVisits = new HashSet<SaleVisit>();
 
-	// private BaseDict cust_source;
-	// private BaseDict cust_industry;
-	// private BaseDict cust_level;
+	 private BaseDict cust_source;
+	 private BaseDict cust_industry;
+	 private BaseDict cust_level;
 
 	// get\set
+	 
+	public BaseDict getCust_source() {
+		return cust_source;
+	}
 
+	public void setCust_source(BaseDict cust_source) {
+		this.cust_source = cust_source;
+	}
+
+	public BaseDict getCust_industry() {
+		return cust_industry;
+	}
+
+	public void setCust_industry(BaseDict cust_industry) {
+		this.cust_industry = cust_industry;
+	}
+
+	public BaseDict getCust_level() {
+		return cust_level;
+	}
+
+	public void setCust_level(BaseDict cust_level) {
+		this.cust_level = cust_level;
+	}
+
+	
 	public Long getCust_id() {
 		return cust_id;
 	}
 
-	public String getCust_source() {
-		return cust_source;
-	}
-
-	public void setCust_source(String cust_source) {
-		this.cust_source = cust_source;
-	}
-
-	public String getCust_industry() {
-		return cust_industry;
-	}
-
-	public void setCust_industry(String cust_industry) {
-		this.cust_industry = cust_industry;
-	}
-
-	public String getCust_level() {
-		return cust_level;
-	}
-
-	public void setCust_level(String cust_level) {
-		this.cust_level = cust_level;
-	}
+//	public String getCust_source() {
+//		return cust_source;
+//	}
+//
+//	public void setCust_source(String cust_source) {
+//		this.cust_source = cust_source;
+//	}
+//
+//	public String getCust_industry() {
+//		return cust_industry;
+//	}
+//
+//	public void setCust_industry(String cust_industry) {
+//		this.cust_industry = cust_industry;
+//	}
+//
+//	public String getCust_level() {
+//		return cust_level;
+//	}
+//
+//	public void setCust_level(String cust_level) {
+//		this.cust_level = cust_level;
+//	}
 
 	public void setCust_id(Long cust_id) {
 		this.cust_id = cust_id;

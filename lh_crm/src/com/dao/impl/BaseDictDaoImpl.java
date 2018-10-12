@@ -22,7 +22,7 @@ public class BaseDictDaoImpl extends BaseDaoImpl<BaseDict> implements BaseDictDa
 		dc.add(Restrictions.eq("dict_type_code", dict_type_code));
 		//执行查询
 		List<BaseDict> list=(List<BaseDict>) getHibernateTemplate().findByCriteria(dc);
-		return null;
+		return list;
 	}
 
 }

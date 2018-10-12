@@ -47,9 +47,6 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	//添加客户
 	public String add() throws Exception {
 		
-		
-		photo.renameTo(new File("G:/haha.jpg"));
-		//--------------------------------
 		//1 调用Service,保存Customer对象
 		cs.save(customer);
 		//2 重定向到客户列表Action

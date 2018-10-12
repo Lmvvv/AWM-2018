@@ -101,12 +101,7 @@
 														style="WIDTH: 180px" maxLength=50 name="cust_mobile" value="<s:property value="#customer.cust_mobile"/>">
 								</td>
 							</TR>
-							<TR>
-								<td>图片上传 ：</td>
-								<td>
-									<input type="file" name="photo" />
-								</td>
-							</TR>
+							
 							<tr>
 								<td rowspan=2>
 								<INPUT class=button id=sButton2 type=submit
