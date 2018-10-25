@@ -1,14 +1,12 @@
 package com.lh.ssm.web.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.lh.common.utils.Page;
 import com.lh.ssm.bean.BaseDict;
 import com.lh.ssm.bean.Customer;
@@ -29,7 +27,6 @@ public class CustomerController {
 	 * 
 	 * @return
 	 */
-
 	@Autowired
 	private BaseDictService baseDictService;
 	@Autowired
@@ -37,7 +34,6 @@ public class CustomerController {
 	//这里的查询条件是写死的，有硬编码问题。可以把类别代码提取到配置文件中，再使用@value注解进行加载
 	@Value("${fromType.code}")
 	private String fromTypeCode;
-
 	@RequestMapping(value="/list.action")
 	public String list(QueryVo vo ,Model model){
 		List<BaseDict> fromType = baseDictService.selectBaseDictListByCode(fromTypeCode);
