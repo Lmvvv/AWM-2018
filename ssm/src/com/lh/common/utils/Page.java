@@ -37,7 +37,9 @@ public class Page<T> {
 	public void setRows(List<T> rows) {
 		this.rows = rows;
 	}
-    
-	
-    
+    @Override
+    public String toString() {
+        return "Page [total=" + total + ", page=" + page + ", size=" + size + ", rows=" + rows + "]";
+    }
+     
 }
