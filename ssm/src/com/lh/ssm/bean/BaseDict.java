@@ -3,8 +3,11 @@ package com.lh.ssm.bean;
 import java.io.Serializable;
 
 /**
- * @author LHææ’
- * @date åˆ›å»ºæ—¶é—´ï¼š2018å¹´10æœˆ22æ—¥ ä¸‹åˆ4:06:15
+ * @Title:  BaseDict.java   
+ * @Package com.lh.ssm.bean   
+ * @Description:    TODO
+ * @author: LHÀîºã    
+ * @date:   2019Äê8ÔÂ9ÈÕ ÏÂÎç1:27:44
  */
 public class BaseDict implements Serializable {
 
